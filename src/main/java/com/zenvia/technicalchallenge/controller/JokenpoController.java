@@ -1,5 +1,6 @@
 package com.zenvia.technicalchallenge.controller;
 
+import com.zenvia.technicalchallenge.dto.ResponseDTO;
 import com.zenvia.technicalchallenge.enums.Choices;
 import com.zenvia.technicalchallenge.service.JokenpoService;
 import lombok.extern.slf4j.Slf4j;
@@ -19,9 +20,10 @@ public class JokenpoController {
     private JokenpoService jokenpoService;
 
     @GetMapping(value = "/play")
-    public ResponseEntity<String> play(@RequestHeader("choice") Choices choice){
-        log.info("JokenpoController.play - Value of 'choice': {}", choice);
-        String result = jokenpoService.play(choice);
-        return ResponseEntity.ok(result);
+    public ResponseEntity<ResponseDTO> play(@RequestHeader("choice") Choices playerChoice){
+        log.info("JokenpoController.play - Sending to service with value of 'choice': {}", playerChoice);
+        ResponseDTO response = jokenpoService.play(playerChoice);
+        log.info("JokenpoController.play - Response: {}", response);
+        return ResponseEntity.ok(response);
     }
 }
