@@ -20,7 +20,7 @@ public class JokenpoController {
     private JokenpoService jokenpoService;
 
     @GetMapping(value = "/play")
-    public ResponseEntity<ResponseDTO> play(@RequestHeader("choice") Choices playerChoice){
+    public ResponseEntity<ResponseDTO> play(@RequestHeader(name = "playerChoice") Choices playerChoice){
         log.info("JokenpoController.play - Sending to service with value of 'choice': {}", playerChoice);
         ResponseDTO response = jokenpoService.play(playerChoice);
         log.info("JokenpoController.play - Response: {}", response);

@@ -11,10 +11,6 @@ public class StringToChoicesEnumConverter implements Converter<String, Choices> 
 
     @Override
     public Choices convert(String source) {
-        try{
-            return Choices.valueOf(source.trim().toUpperCase(Locale.ROOT));
-        } catch(Exception e){
-            return Choices.valueOf(source);
-        }
+        return Choices.valueOf(source.trim().toUpperCase(Locale.ROOT));
     }
 }

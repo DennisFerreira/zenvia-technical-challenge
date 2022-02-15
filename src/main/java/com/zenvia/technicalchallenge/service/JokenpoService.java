@@ -14,7 +14,7 @@ public class JokenpoService {
 
     public ResponseDTO play(Choices playerChoice){
 
-        log.info("JokenpoService.play - Player chose: {}", playerChoice);
+        log.info("JokenpoService.play - Start - Player chose {} ", playerChoice);
 
         Choices computerChoice = getComputerChoice();
 
@@ -24,7 +24,7 @@ public class JokenpoService {
 
         ResponseDTO responseDTO = new ResponseDTO(playerChoice,computerChoice,result);
 
-        log.info("JokenpoService.play - Result: {}", result);
+        log.info("JokenpoService.play - End - Result: {}", result);
 
         return responseDTO;
     }
